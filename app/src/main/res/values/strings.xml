@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Dare</string>
+    <string name="email">email</string>
+    <string name="name">name</string>
+    <string name="login">log in</string>
+    <string name="register">Register</string>
+    <string name="password">password</string>
 </resources>
