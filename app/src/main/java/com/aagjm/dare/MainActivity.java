@@ -19,11 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String username = intent.getStringExtra("username");
-        String priimek = intent.getStringExtra("priimek");
+        String email = intent.getStringExtra("email");
         String message = "Pozdravljen";
         tvLarge.setText(message);
         tvSmall.setText(username);
-        etUsername.setText(priimek);
+        etUsername.setText(email);
 
     }
 }

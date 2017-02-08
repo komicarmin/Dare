@@ -1,6 +1,5 @@
 package com.aagjm.dare;
 
-import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,20 +18,21 @@ import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
 
-import static android.R.attr.inputType;
-
 public class LoginActivity extends AppCompatActivity {
 //glej reqisterActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Hides actionBar and sets activity to fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
+
         setContentView(R.layout.activity_login);
 
-        final EditText etName = (EditText) findViewById(R.id.etName);
+        final EditText etName = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
         final Button bButton = (Button) findViewById(R.id.bButton);
         final TextView tvReg = (TextView) findViewById(R.id.tvReg);
@@ -57,12 +57,13 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonResponse = new JSONObject(Response);
                         boolean success = jsonResponse.getBoolean("dela");
                         if(success){
-                            String name = jsonResponse.getString("Ime");
-                            String priimek = jsonResponse.getString("Priimek");
+                            Toast toast1 = Toast.makeText(getApplicationContext(), "Response!", Toast.LENGTH_SHORT);
+                            toast1.show();
+                            String name = jsonResponse.getString("username");
+                            String email = jsonResponse.getString("email");
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            intent.putExtra("username", username);
-                            intent.putExtra("name", name);
-                            intent.putExtra("priimek", priimek);
+                            intent.putExtra("username", name);
+                            intent.putExtra("email", email);
                             LoginActivity.this.startActivity(intent);
                         }
                         else{
@@ -71,6 +72,8 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                     catch (Exception e) {
+                        Toast toast1 = Toast.makeText(getApplicationContext(), "Exception?!", Toast.LENGTH_SHORT);
+                        toast1.show();
                     }
                 }
             };

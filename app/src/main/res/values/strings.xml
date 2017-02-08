@@ -2,7 +2,10 @@
     <string name="app_name">Dare</string>
     <string name="email">email</string>
     <string name="name">name</string>
+    <string name="surname">surname</string>
     <string name="login">log in</string>
     <string name="register">Register</string>
     <string name="password">password</string>
+    <string name="passwordconfirm">confirm password</string>
+    <string name="username">username</string>
 </resources>

@@ -17,16 +17,16 @@ public class RegisterRequest extends StringRequest {
 
     //konstruktor sprejema tiste stvari katere so pomembne za registracijo
     //potrebno je še dodati MAC naslov naprave(trenutno je hard inconded
-    RegisterRequest(String ime, String priimek, String geslo, String mac,int finished, Response.Listener<String> listener){
+    RegisterRequest(String username, String email, String password, String mac, int finished, Response.Listener<String> listener){
         //da bi lahko naredili request moramo poklicati konstruktor od StringRequest(tukaj pride Volley prav)
         //super(metoda_pošiljanja,url_naslov,listener,error listener)
         //listener potrebuje zato, da ko Volley zaključi z zahtevo aktivira listenerja
         super(Method.POST,url,listener,null);
         params = new HashMap<>();
-        params.put("Ime",ime);
-        params.put("Priimek",priimek);
-        params.put("Geslo",geslo);
-        params.put("MAC",mac);
+        params.put("username",username);
+        params.put("email",email);
+        params.put("password",password);
+        params.put("mac",mac);
         params.put("finished_count",finished +"");
 
     }
