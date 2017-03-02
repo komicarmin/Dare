@@ -27,8 +27,6 @@ public class LoginActivity extends AppCompatActivity {
         //Hides actionBar and sets activity to fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         setContentView(R.layout.activity_login);
 
@@ -61,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                             toast1.show();
                             String name = jsonResponse.getString("username");
                             String email = jsonResponse.getString("email");
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, MainnActivity.class);
                             intent.putExtra("username", name);
                             intent.putExtra("email", email);
                             LoginActivity.this.startActivity(intent);

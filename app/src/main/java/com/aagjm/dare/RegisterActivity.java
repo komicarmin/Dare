@@ -37,8 +37,6 @@ public class RegisterActivity extends AppCompatActivity {
         //Hides actionBar and sets activity to fullscreen
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
         setContentView(R.layout.activity_register);
 
